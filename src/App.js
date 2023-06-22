@@ -1,9 +1,8 @@
-import { Button } from "@mui/material";
-
+import Home_Page from "./Pages/Home_Page";
 function App() {
   return (
     <div>
-      <Button color="primary" variant="contained">Discount Calculator</Button>
+      <Home_Page />
     </div>
   );
 }
