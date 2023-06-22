@@ -1,7 +1,9 @@
+import { Button } from "@mui/material";
+
 function App() {
   return (
     <div>
-      <h1>Discount Calculator</h1>
+      <Button color="primary" variant="contained">Discount Calculator</Button>
     </div>
   );
 }
