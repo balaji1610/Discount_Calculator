@@ -3,3 +3,9 @@
   border: 1px solid rgb(13, 11, 11);
   border-radius: 15px;
 }
+
+.itemsGrid {
+  background-color: red;
+  border: 2px solid black;
+  color: #ffffff;
+}
