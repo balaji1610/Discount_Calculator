@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
 import CurrentDate from "./CurrentDate";
+import ToggleButtonComp from "./ToggleButtonComp";
 
-import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div>
@@ -34,18 +34,7 @@ export default function Header() {
         </Grid>
         <div></div>
         <Grid item xs={3}>
-          <Link to="/">
-            {" "}
-            <a>
-              <button>Calcultor</button>
-            </a>
-          </Link>
-          <Link to="/History">
-            {" "}
-            <a>
-              <button>History</button>
-            </a>
-          </Link>
+          <ToggleButtonComp />
         </Grid>
       </Grid>
     </div>
