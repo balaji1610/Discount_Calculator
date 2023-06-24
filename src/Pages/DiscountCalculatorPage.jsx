@@ -110,7 +110,12 @@ export default function DiscountCalculatorPage() {
           <Grid
             container
             xs={8}
-            style={{ border: "3px solid red", heigth: "10px" }}
+            style={{
+              border: "1px solid red",
+              heigth: "10px",
+              padding: "20px",
+              borderRadius: "90px",
+            }}
           >
             <Grid item xs={1}></Grid>
             <Grid item xs={3}>
@@ -138,7 +143,10 @@ export default function DiscountCalculatorPage() {
             container
             xs={8}
             style={{
-              border: "3px solid red",
+              border: "1px solid red",
+              heigth: "10px",
+              padding: "20px",
+              borderRadius: "90px",
             }}
           >
             <Grid item xs={1}></Grid>
