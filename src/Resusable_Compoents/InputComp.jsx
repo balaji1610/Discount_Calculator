@@ -8,7 +8,10 @@ export default function InputComp({
   color,
   style,
   inputProps,
-  type
+  type,
+  value,
+  onChange,
+  name,
 }) {
   return (
     <div>
@@ -21,6 +24,9 @@ export default function InputComp({
         style={style}
         inputProps={inputProps}
         type={type}
+        value={value}
+        onChange={onChange}
+        name={name}
       />
     </div>
   );

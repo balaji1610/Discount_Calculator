@@ -1,9 +1,52 @@
 import CardDiscount from "../Containers/CardDiscount";
 import Grid from "@mui/material/Grid";
-import { Button } from "@mui/material";
+
 import InputComp from "../Resusable_Compoents/InputComp";
 import ButtonComp from "../Resusable_Compoents/ButtonComp";
+
+import HistoryTime from "../Containers/HistoryTime";
+import { useState } from "react";
+
 export default function DiscountCalculatorPage() {
+  const his = HistoryTime.time();
+
+  const [discountInfo, setDiscountInfo] = useState({
+    date: his,
+    orginalPrice: " ",
+    percentage: " ",
+    savings: " ",
+    finalPrice: " ",
+  });
+  const handleTextChange = (e) => {
+    setDiscountInfo((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleClickSubmit = (e) => {
+    e.preventDefault();
+
+    const Saving = (discountInfo.orginalPrice * discountInfo.percentage) / 100;
+    const FinalPrice = discountInfo.orginalPrice - Saving;
+
+    const UpdateDetails = {
+      savings: Saving,
+      finalPrice: FinalPrice,
+    };
+
+    const { savings, finalPrice } = UpdateDetails;
+    setDiscountInfo({
+      ...discountInfo,
+      savings,
+      finalPrice,
+    });
+  };
+
+  const handleClickClear = () => {
+    setDiscountInfo("");
+  };
+  console.log(discountInfo);
   return (
     <div>
       <CardDiscount>
@@ -25,17 +68,17 @@ export default function DiscountCalculatorPage() {
                 style={{
                   width: "150px",
                 }}
-                inputProps={{
-                  maxLength: "7",
-                  style: { fontSize: 20, color: "black" },
-                }}
+                onChange={handleTextChange}
+                value={discountInfo.orginalPrice}
+                name="orginalPrice"
               />
             </div>
           </Grid>
-          <Grid item xs={2}></Grid>
+          <Grid item xs={2}>
+            <div> </div>
+          </Grid>
           <Grid item xs={2}>
             <div>
-              {" "}
               <InputComp
                 label="Discount"
                 variant="outlined"
@@ -44,12 +87,10 @@ export default function DiscountCalculatorPage() {
                 style={{
                   width: "150px",
                 }}
-                inputProps={{
-                  min: "1",
-                  max: "100",
-                  style: { fontSize: 20, color: "black" },
-                }}
                 type="number"
+                onChange={handleTextChange}
+                value={discountInfo.percentage}
+                name="percentage"
               />
             </div>
           </Grid>
@@ -71,17 +112,17 @@ export default function DiscountCalculatorPage() {
             xs={8}
             style={{ border: "3px solid red", heigth: "10px" }}
           >
-            <Grid item xs={2}></Grid>
-            <Grid item xs={2}>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={3}>
               <div>Savings</div>
             </Grid>
             <Grid item xs={2}></Grid>
-            <Grid item xs={2}>
-              <div>Rupees</div>
+            <Grid item xs={3}>
+              <div>{discountInfo.savings}</div>
             </Grid>
           </Grid>
 
-          <Grid item xs={2}></Grid>
+          <Grid item xs={1}></Grid>
         </Grid>
 
         <Grid
@@ -100,17 +141,17 @@ export default function DiscountCalculatorPage() {
               border: "3px solid red",
             }}
           >
-            <Grid item xs={2}></Grid>
-            <Grid item xs={2}>
-              <div>Savings</div>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={3}>
+              Final Price
             </Grid>
             <Grid item xs={2}></Grid>
-            <Grid item xs={2}>
-              <div>Rupees</div>
+            <Grid item xs={3}>
+              <div>{discountInfo.finalPrice}</div>
             </Grid>
           </Grid>
 
-          <Grid item xs={2}></Grid>
+          <Grid item xs={1}></Grid>
         </Grid>
 
         <div
@@ -127,13 +168,21 @@ export default function DiscountCalculatorPage() {
           <Grid item xs={3}></Grid>
           <Grid item xs={3}>
             <div>
-              <ButtonComp variant="contained" label="Submit" />
+              <ButtonComp
+                variant="contained"
+                label="Submit"
+                onClick={handleClickSubmit}
+              />
             </div>
           </Grid>
           <Grid item xs={3}>
             <div>
               {" "}
-              <ButtonComp variant="contained" label="Clear" />
+              <ButtonComp
+                variant="contained"
+                label="Clear"
+                onClick={handleClickClear}
+              />
             </div>
           </Grid>
           <Grid item xs={3}></Grid>
