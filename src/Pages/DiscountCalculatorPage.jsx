@@ -2,6 +2,7 @@ import CardDiscount from "../Containers/CardDiscount";
 import Grid from "@mui/material/Grid";
 import { Button } from "@mui/material";
 import InputComp from "../Resusable_Compoents/InputComp";
+import ButtonComp from "../Resusable_Compoents/ButtonComp";
 export default function DiscountCalculatorPage() {
   return (
     <div>
@@ -45,7 +46,7 @@ export default function DiscountCalculatorPage() {
                 }}
                 inputProps={{
                   min: "1",
-                  max:'100',
+                  max: "100",
                   style: { fontSize: 20, color: "black" },
                 }}
                 type="number"
@@ -126,13 +127,13 @@ export default function DiscountCalculatorPage() {
           <Grid item xs={3}></Grid>
           <Grid item xs={3}>
             <div>
-              <Button variant="contained">Submit</Button>
+              <ButtonComp variant="contained" label="Submit" />
             </div>
           </Grid>
           <Grid item xs={3}>
             <div>
               {" "}
-              <Button variant="contained">Clear</Button>
+              <ButtonComp variant="contained" label="Clear" />
             </div>
           </Grid>
           <Grid item xs={3}></Grid>
