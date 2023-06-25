@@ -17,6 +17,10 @@ export default function DiscountCalculatorPage() {
     percentage: " ",
   });
 
+  const [userViewData, setUserViewData] = useState({
+    savings: "",
+    finalPrice: "",
+  });
   const handleTextChange = (e) => {
     setDiscountInfo((prevState) => ({
       ...prevState,
@@ -30,6 +34,11 @@ export default function DiscountCalculatorPage() {
     const Saving = (discountInfo.orginalPrice * discountInfo.percentage) / 100;
     const FinalPrice = discountInfo.orginalPrice - Saving;
 
+    setUserViewData({
+      ...userViewData,
+      savings: Saving,
+      finalPrice: FinalPrice,
+    });
     const payloadData = {
       date: his,
       orginalPrice: discountInfo.orginalPrice,
@@ -47,7 +56,8 @@ export default function DiscountCalculatorPage() {
   const handleClickClear = () => {
     setDiscountInfo("");
   };
-  console.log(DataArray);
+  console.log(userViewData, "userViewData");
+  console.log(DataArray,"DataArray")
   return (
     <div>
       <CardDiscount>
@@ -124,7 +134,7 @@ export default function DiscountCalculatorPage() {
             </Grid>
             <Grid item xs={2}></Grid>
             <Grid item xs={3}>
-              <div>{discountInfo.savings}</div>
+              <div>{userViewData.savings}</div>
             </Grid>
           </Grid>
 
@@ -156,7 +166,7 @@ export default function DiscountCalculatorPage() {
             </Grid>
             <Grid item xs={2}></Grid>
             <Grid item xs={3}>
-              <div>{discountInfo.finalPrice}</div>
+              <div>{userViewData.finalPrice}</div>
             </Grid>
           </Grid>
 
