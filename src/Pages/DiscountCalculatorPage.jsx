@@ -10,13 +10,13 @@ import { useState } from "react";
 export default function DiscountCalculatorPage() {
   const his = HistoryTime.time();
 
+  const [DataArray, setDataArray] = useState([]);
+
   const [discountInfo, setDiscountInfo] = useState({
-    date: his,
     orginalPrice: " ",
     percentage: " ",
-    savings: " ",
-    finalPrice: " ",
   });
+
   const handleTextChange = (e) => {
     setDiscountInfo((prevState) => ({
       ...prevState,
@@ -30,23 +30,24 @@ export default function DiscountCalculatorPage() {
     const Saving = (discountInfo.orginalPrice * discountInfo.percentage) / 100;
     const FinalPrice = discountInfo.orginalPrice - Saving;
 
-    const UpdateDetails = {
+    const payloadData = {
+      date: his,
+      orginalPrice: discountInfo.orginalPrice,
+      percentage: discountInfo.percentage,
       savings: Saving,
       finalPrice: FinalPrice,
     };
 
-    const { savings, finalPrice } = UpdateDetails;
-    setDiscountInfo({
-      ...discountInfo,
-      savings,
-      finalPrice,
-    });
+    // const { date, orginalPrice, percentage, savings, finalPrice } = payloadData;
+
+    const updateData = [...DataArray, payloadData];
+    setDataArray(updateData);
   };
 
   const handleClickClear = () => {
     setDiscountInfo("");
   };
-  console.log(discountInfo);
+  console.log(DataArray);
   return (
     <div>
       <CardDiscount>
