@@ -12,6 +12,7 @@ export default function ButtonComp({
   endIcon,
   onMouseEnter,
   onMouseLeave,
+  component,
 }) {
   return (
     <>
@@ -26,6 +27,7 @@ export default function ButtonComp({
         endIcon={endIcon}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        component={component}
       >
         {label}
       </Button>
