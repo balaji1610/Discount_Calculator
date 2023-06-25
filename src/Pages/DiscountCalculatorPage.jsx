@@ -96,7 +96,7 @@ export default function DiscountCalculatorPage() {
           </Grid>
           <Grid item xs={1}></Grid>
         </Grid>
-        {/* Savingslayout Css */}
+        {/* Savingslayout */}
 
         <Grid
           container
