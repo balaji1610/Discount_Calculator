@@ -2,15 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   HistoryArray: [],
-  value: 0,
+  calleffect: 0,
 };
 
 export const HistorySlice = createSlice({
   name: "Calculator",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    callUserEffect: (state) => {
+      state.calleffect += 1;
     },
 
     addHistory: (state, action) => {
@@ -20,6 +20,6 @@ export const HistorySlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, addHistory } = HistorySlice.actions;
+export const { callUserEffect, addHistory } = HistorySlice.actions;
 
 export default HistorySlice.reducer;

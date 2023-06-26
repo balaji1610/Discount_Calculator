@@ -8,15 +8,11 @@ import HistoryTime from "../Containers/HistoryTime";
 import { useState, useEffect } from "react";
 
 import Services from "../Services/Services";
-import { useSelector, useDispatch } from "react-redux";
-import { addHistory } from "../features/History/HistorySlice";
+import { useDispatch } from "react-redux";
+import { callUserEffect } from "../features/History/HistorySlice";
 export default function DiscountCalculatorPage() {
-  const add = useSelector((state) => state.counterStore.HistoryArray);
   const dispatch = useDispatch();
   const his = HistoryTime.time();
-
-  const [api, setApi] = useState([]);
-  const [DataArray, setDataArray] = useState([]);
 
   const [discountInfo, setDiscountInfo] = useState({
     orginalPrice: "",
@@ -34,7 +30,7 @@ export default function DiscountCalculatorPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const Saving = (discountInfo.orginalPrice * discountInfo.percentage) / 100;
@@ -46,17 +42,14 @@ export default function DiscountCalculatorPage() {
       finalPrice: FinalPrice,
     });
     const payloadData = {
-      id: "",
       date: his,
       orginalPrice: discountInfo.orginalPrice,
       percentage: discountInfo.percentage,
       savings: Saving,
       finalPrice: FinalPrice,
     };
-
-    const updateData = [...DataArray, payloadData];
-    setDataArray(updateData);
-    dispatch(addHistory(payloadData));
+    let res = await Services.postApi(payloadData);
+    dispatch(callUserEffect());
   };
 
   const handleClickClear = () => {
@@ -67,16 +60,8 @@ export default function DiscountCalculatorPage() {
 
   // console.log(userViewData, "userViewData");
   // console.log(DataArray, "DataArray");
-  useEffect(() => {
-    const getData = async () => {
-      let getApiRes = await Services.getApi();
-      let getUserDetails = getApiRes.map((item) => item);
-      setApi(getUserDetails);
-    };
-    getData();
-  }, []);
 
-  console.log(add, "addREdux");
+  // console.log(add, "addREdux");
   return (
     <div>
       <CardDiscount>

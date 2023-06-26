@@ -1,4 +1,4 @@
-const baseURL = "https://trapezoidal-ahead-operation.glitch.me/calculator";
+const baseURL = "https://muddy-longing-mulberry.glitch.me/calculator";
 const Services = {
   getApi: () => {
     const response = fetch(`${baseURL}`)
