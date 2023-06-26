@@ -10,10 +10,13 @@ import { useState, useEffect } from "react";
 import Services from "../Services/Services";
 import { useDispatch } from "react-redux";
 import { callUserEffect } from "../features/History/HistorySlice";
+const numWords = require("num-words");
+
 export default function DiscountCalculatorPage() {
   const dispatch = useDispatch();
   const his = HistoryTime.time();
 
+  const [numTowords, setNumTowords] = useState("");
   const [discountInfo, setDiscountInfo] = useState({
     orginalPrice: "",
     percentage: "",
@@ -35,6 +38,14 @@ export default function DiscountCalculatorPage() {
 
     const Saving = (discountInfo.orginalPrice * discountInfo.percentage) / 100;
     const FinalPrice = discountInfo.orginalPrice - Saving;
+    const amountInWords = numWords(FinalPrice);
+
+    const captial = amountInWords
+      .split(" ")
+      .map((el) => el.replace(el[0], el[0].toUpperCase()))
+      .join(" ");
+
+    setNumTowords(`${captial} Ruppess Only !!`);
 
     setUserViewData({
       ...userViewData,
@@ -49,6 +60,7 @@ export default function DiscountCalculatorPage() {
       finalPrice: FinalPrice,
     };
     let res = await Services.postApi(payloadData);
+    console.log(res, "res");
     dispatch(callUserEffect());
   };
 
@@ -62,6 +74,7 @@ export default function DiscountCalculatorPage() {
   // console.log(DataArray, "DataArray");
 
   // console.log(add, "addREdux");
+
   return (
     <div>
       <CardDiscount>
@@ -185,8 +198,7 @@ export default function DiscountCalculatorPage() {
               marginBottom: "20px",
             }}
           >
-            FIve thousand Rupess Only
-            {/* {add} */}
+            {numTowords}
           </div>
 
           <Grid container>
