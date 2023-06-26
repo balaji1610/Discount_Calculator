@@ -1,7 +1,7 @@
 const baseURL = "https://muddy-longing-mulberry.glitch.me/calculator";
 const Services = {
   getApi: () => {
-    const response = fetch(`${baseURL}`)
+    const response = fetch(`${baseURL}?_sort=id&_order=desc`)
       .then((res) => res.json())
       .then((data) => {
         return data;
