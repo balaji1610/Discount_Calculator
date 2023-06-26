@@ -19,22 +19,37 @@ export default function HistoryPage() {
     <div>
       <div className="HistoryCardOveflow">
         {getapi.map((elm) => {
-          const { date } = elm;
+          const { date,orginalPrice,percentage,savings,finalPrice } = elm;
           const dataTimeSplit = date.split("at");
           const Date = dataTimeSplit[0];
           const Time = dataTimeSplit[1];
 
           return (
             <div className="HistoryCardLayout">
-              <h2
-                style={{
-                  textAlign: "center",
-                  color: "#ffffff",
-                }}
-              >
-                {Date}
-                {Time}
-              </h2>
+              <div className="DateTimeLayoutFlex">
+                <div className="ItemDateTime">{Date}</div>
+                <div className="ItemDateTime">{Time}</div>
+              </div>
+              <div className="OrginalPrice">
+                <div>orginalPrice</div>
+                <div>:</div>
+                <div>{orginalPrice}</div>
+              </div>
+              <div className="OrginalPrice">
+                <div>percentage</div>
+                <div>:</div>
+                <div>{percentage}</div>
+              </div>
+              <div className="OrginalPrice">
+                <div>savings</div>
+                <div>:</div>
+                <div>{savings}</div>
+              </div>
+              <div className="OrginalPrice">
+                <div>finalPrice</div>
+                <div>:</div>
+                <div>{finalPrice}</div>
+              </div>
             </div>
           );
         })}

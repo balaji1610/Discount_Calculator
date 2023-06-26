@@ -1,7 +1,9 @@
 .HistoryCardLayout {
-  height: 239px;
-  width: 200px;
-  background-color: red;
+  height: 226px;
+  width: 216px;
+  background-color: #6b7280;
+  color: #ffffff;
+  border-radius: 8%;
   display: inline-block;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -11,5 +13,23 @@
 .HistoryCardOveflow {
   height: 80vh;
   overflow-y: scroll;
-  margin-left: 70px;
+  margin-left: 60px;
+}
+
+.DateTimeLayoutFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.ItemDateTime {
+  height: 40px;
+}
+
+.OrginalPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.OrginalPrice > div {
+  height: 40px;
 }
