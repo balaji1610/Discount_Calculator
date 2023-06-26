@@ -8,7 +8,11 @@ import HistoryTime from "../Containers/HistoryTime";
 import { useState, useEffect } from "react";
 
 import Services from "../Services/Services";
+import { useSelector, useDispatch } from "react-redux";
+import { increment } from "../features/counter/counterSlice.";
 export default function DiscountCalculatorPage() {
+  const add = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
   const his = HistoryTime.time();
 
   const [api, setApi] = useState([]);
@@ -195,7 +199,7 @@ export default function DiscountCalculatorPage() {
               marginBottom: "20px",
             }}
           >
-            FIve thousand Rupess Only
+            FIve thousand Rupess Only{add}
           </div>
 
           <Grid container>
@@ -223,6 +227,13 @@ export default function DiscountCalculatorPage() {
             </Grid>
             <Grid item xs={3}></Grid>
           </Grid>
+          <button
+            onClick={() => {
+              dispatch(increment());
+            }}
+          >
+            Dispatch
+          </button>
         </form>
       </CardDiscount>
     </div>
