@@ -1,8 +1,11 @@
 .HistoryCardLayout {
-  height: 226px;
-  width: 216px;
-  background-color: #6b7280;
-  color: #ffffff;
+  height: 256px;
+  width: 35vh;
+  background: linear-gradient(
+    90deg,
+    hsla(186, 33%, 94%, 1) 0%,
+    hsla(216, 41%, 79%, 1) 100%
+  );
   border-radius: 8%;
   display: inline-block;
   margin-top: 20px;
@@ -23,6 +26,8 @@
 }
 .ItemDateTime {
   height: 40px;
+  font-size: 18px;
+  margin-top: 20px;
 }
 
 .OrginalPrice {
@@ -32,4 +37,9 @@
 }
 .OrginalPrice > div {
   height: 40px;
+}
+
+.DeleteIcon {
+  margin-right: 20px;
+  float: right;
 }
