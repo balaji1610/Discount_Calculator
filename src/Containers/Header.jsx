@@ -13,7 +13,7 @@ export default function Header() {
         justifyContent="center"
         alignItems="center"
         style={{
-          height: "200px",
+          height: "150px",
           borderBottom: "2px solid #000000",
         }}
       >

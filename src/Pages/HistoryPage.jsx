@@ -64,24 +64,86 @@ export default function HistoryPage() {
                 <div className="ItemDateTime">{Time}</div>
               </div>
               <div className="OrginalPrice">
-                <div>orginalPrice{HistoryPage}</div>
+                <div> Orginal Price</div>
                 <div>:</div>
-                <div>{orginalPrice}</div>
+                <div>
+                  {" "}
+                  <img
+                    style={{
+                      display: "inline-block",
+                    }}
+                    width="20"
+                    height="20"
+                    src="https://img.icons8.com/material-outlined/24/rupee.png"
+                    alt="rupee"
+                  />
+                  <span
+                    style={{
+                      fontSize: "18px",
+                    }}
+                  >
+                    {orginalPrice}
+                  </span>
+                </div>
               </div>
               <div className="OrginalPrice">
-                <div>percentage</div>
+                <div>Percentage </div>
                 <div>:</div>
-                <div>{percentage}</div>
+                <div
+                  style={{
+                    fontSize: "18px",
+                  }}
+                >
+                  {percentage}%
+                </div>
               </div>
               <div className="OrginalPrice">
-                <div>savings</div>
+                <div>Savings</div>
                 <div>:</div>
-                <div>{savings}</div>
+
+                <div>
+                  {" "}
+                  <img
+                    style={{
+                      display: "inline-block",
+                    }}
+                    width="24"
+                    height="24"
+                    src="https://img.icons8.com/material-outlined/24/rupee.png"
+                    alt="rupee"
+                  />
+                  <span
+                    style={{
+                      fontSize: "25px",
+                    }}
+                  >
+                    {savings}
+                  </span>
+                </div>
               </div>
               <div className="OrginalPrice">
-                <div>finalPrice</div>
+                <div>FinalPrice</div>
                 <div>:</div>
-                <div>{finalPrice}</div>
+
+                <div>
+                  {" "}
+                  <img
+                    style={{
+                      display: "inline-block",
+                    }}
+                    width="24"
+                    height="24"
+                    src="https://img.icons8.com/material-outlined/24/rupee.png"
+                    alt="rupee"
+                  />
+                  <span
+                    style={{
+                      fontSize: "25px",
+                    }}
+                  >
+                    {finalPrice}
+                  </span>
+                </div>
               </div>
               <div className="DeleteIcon">
                 <div
