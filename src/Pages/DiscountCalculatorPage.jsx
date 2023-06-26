@@ -5,11 +5,13 @@ import InputComp from "../Resusable_Compoents/InputComp";
 import ButtonComp from "../Resusable_Compoents/ButtonComp";
 
 import HistoryTime from "../Containers/HistoryTime";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
+import Services from "../Services/Services";
 export default function DiscountCalculatorPage() {
   const his = HistoryTime.time();
 
+  const [api, setApi] = useState([]);
   const [DataArray, setDataArray] = useState([]);
 
   const [discountInfo, setDiscountInfo] = useState({
@@ -40,6 +42,7 @@ export default function DiscountCalculatorPage() {
       finalPrice: FinalPrice,
     });
     const payloadData = {
+      id: "",
       date: his,
       orginalPrice: discountInfo.orginalPrice,
       percentage: discountInfo.percentage,
@@ -57,8 +60,18 @@ export default function DiscountCalculatorPage() {
   };
   const SubmitButton = (props) => <button {...props} type="submit" />;
 
-  console.log(userViewData, "userViewData");
-  console.log(DataArray, "DataArray");
+  // console.log(userViewData, "userViewData");
+  // console.log(DataArray, "DataArray");
+  useEffect(() => {
+    const getData = async () => {
+      let getApiRes = await Services.getApi();
+      let getUserDetails = getApiRes.map((item) => item);
+      setApi(getUserDetails);
+    };
+    getData();
+  }, []);
+
+  console.log(api, "API");
   return (
     <div>
       <CardDiscount>
