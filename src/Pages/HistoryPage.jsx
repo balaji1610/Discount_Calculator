@@ -14,10 +14,31 @@ export default function HistoryPage() {
     getData();
   }, [HistoryPage]);
 
-  console.log(getapi, "getapi");
+  // console.log(getapi, "getapi");
   return (
     <div>
-      <h1>{HistoryPage}</h1>
+      <div className="HistoryCardOveflow">
+        {getapi.map((elm) => {
+          const { date } = elm;
+          const dataTimeSplit = date.split("at");
+          const Date = dataTimeSplit[0];
+          const Time = dataTimeSplit[1];
+
+          return (
+            <div className="HistoryCardLayout">
+              <h2
+                style={{
+                  textAlign: "center",
+                  color: "#ffffff",
+                }}
+              >
+                {Date}
+                {Time}
+              </h2>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

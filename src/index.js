@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "./Css/Header.css";
 import "./Css/Discount.css";
+import "./Css/HistoryPage.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store";

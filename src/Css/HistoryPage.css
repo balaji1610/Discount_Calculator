@@ -1,0 +1,15 @@
+.HistoryCardLayout {
+  height: 239px;
+  width: 200px;
+  background-color: red;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+.HistoryCardOveflow {
+  height: 80vh;
+  overflow-y: scroll;
+  margin-left: 70px;
+}
