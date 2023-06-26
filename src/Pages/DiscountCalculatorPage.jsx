@@ -9,9 +9,9 @@ import { useState, useEffect } from "react";
 
 import Services from "../Services/Services";
 import { useSelector, useDispatch } from "react-redux";
-import { increment } from "../features/counter/counterSlice.";
+import { addHistory } from "../features/History/HistorySlice";
 export default function DiscountCalculatorPage() {
-  const add = useSelector((state) => state.counter.value);
+  const add = useSelector((state) => state.counterStore.HistoryArray);
   const dispatch = useDispatch();
   const his = HistoryTime.time();
 
@@ -56,6 +56,7 @@ export default function DiscountCalculatorPage() {
 
     const updateData = [...DataArray, payloadData];
     setDataArray(updateData);
+    dispatch(addHistory(payloadData));
   };
 
   const handleClickClear = () => {
@@ -75,7 +76,7 @@ export default function DiscountCalculatorPage() {
     getData();
   }, []);
 
-  console.log(api, "API");
+  console.log(add, "addREdux");
   return (
     <div>
       <CardDiscount>
@@ -199,7 +200,8 @@ export default function DiscountCalculatorPage() {
               marginBottom: "20px",
             }}
           >
-            FIve thousand Rupess Only{add}
+            FIve thousand Rupess Only
+            {/* {add} */}
           </div>
 
           <Grid container>
@@ -227,13 +229,13 @@ export default function DiscountCalculatorPage() {
             </Grid>
             <Grid item xs={3}></Grid>
           </Grid>
-          <button
+          {/* <button
             onClick={() => {
               dispatch(increment());
             }}
           >
             Dispatch
-          </button>
+          </button> */}
         </form>
       </CardDiscount>
     </div>
