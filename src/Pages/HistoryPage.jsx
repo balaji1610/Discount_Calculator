@@ -45,6 +45,16 @@ export default function HistoryPage() {
     const deleteapiitems = await Services.deleteApi(getid);
     dispatch(callUserEffect());
   };
+  const [showbtn, setshowbtn] = useState(-1);
+  const hoverMouseEnter = (id) => {
+    setshowbtn(id);
+  };
+
+  const hoverMouseLeave = () => {
+    setshowbtn(-1);
+  };
+
+  console.log(showbtn, "showbtn");
   return (
     <div>
       <div>
@@ -91,7 +101,11 @@ export default function HistoryPage() {
           const Time = dataTimeSplit[1];
 
           return (
-            <div className="HistoryCardLayout">
+            <div
+              className="HistoryCardLayout"
+              onMouseEnter={() => hoverMouseEnter(id)}
+              onMouseLeave={hoverMouseLeave}
+            >
               <div className="DateTimeLayoutFlex">
                 <div className="ItemDateTime">
                   {" "}
@@ -216,7 +230,12 @@ export default function HistoryPage() {
                   </span>
                 </div>
               </div>
-              <div className="DeleteIcon">
+              <div
+                className="DeleteIcon"
+                style={{
+                  display: showbtn===id ? "block" : "none",
+                }}
+              >
                 <div
                   onClick={() => deleteItem(id)}
                   style={{
