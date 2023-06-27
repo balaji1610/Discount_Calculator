@@ -43,3 +43,24 @@
   margin-right: 20px;
   float: right;
 }
+.Loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Loader > div {
+  margin-top: 20px;
+  height: 40px;
+}
+
+.Alert_Loader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.Alert_Loader > div {
+  margin-top: 20px;
+  height: 40px;
+}

@@ -3,20 +3,42 @@ import { useSelector, useDispatch } from "react-redux";
 import Services from "../Services/Services";
 import redClock from "../assests/images/redClock.png";
 import { callUserEffect } from "../features/History/HistorySlice";
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
+import { fontSize } from "@mui/system";
 export default function HistoryPage() {
   const HistoryPage = useSelector((state) => state.counterStore.calleffect);
   const dispatch = useDispatch();
   const [getapi, setGETApi] = useState([]);
+
+  const [Loading, setLoading] = useState({
+    loading: null,
+  });
+  const [loadingCover, setLoadingCover] = useState(true);
+  const API_Url =
+    "https://muddy-longing-mulberry.glitch.me/calculator?_sort=id&_order=desc";
+
+  const getData = async () => {
+    setLoading({ ...Loading, loading: true });
+    const response = await fetch(`${API_Url}`);
+
+    if (!response.ok) {
+      console.log(true);
+    } else {
+      let getApiRes = await response.json();
+
+      setLoading({ ...Loading, loading: false });
+      setLoadingCover(false);
+      setGETApi(getApiRes);
+      setTimeout(() => {
+        setLoadingCover(true);
+      }, 2000);
+    }
+  };
+
   useEffect(() => {
-    const getData = async () => {
-      let getApiRes = await Services.getApi();
-      let getUserDetails = getApiRes.map((item) => item);
-      setGETApi(getUserDetails);
-    };
     getData();
   }, [HistoryPage]);
-
-  // console.log(getapi, "getapi");
 
   const deleteItem = async (getid) => {
     alert(getid);
@@ -25,6 +47,41 @@ export default function HistoryPage() {
   };
   return (
     <div>
+      <div>
+        {Loading.loading ? (
+          <div className="Loader">
+            <div>
+              {" "}
+              <CircularProgress />
+            </div>
+            <div
+              style={{
+                color: "red",
+              }}
+            >
+              <h2>Loading . . .</h2>
+            </div>
+          </div>
+        ) : (
+          <div className="Alert_Loader">
+            <div style={{ display: loadingCover ? "none" : "inline" }}>
+              <Alert
+                variant="filled"
+                severity="success"
+                style={{
+                  width: "300px",
+                  color: "#ffffff",
+                  background:
+                    "linear-gradient(90deg, hsla(139, 72%, 83%, 1) 0%, hsla(229, 89%, 62%, 1) 100%)",
+                  fontSize: "18px",
+                }}
+              >
+                Fetching Data Successfully
+              </Alert>
+            </div>
+          </div>
+        )}
+      </div>
       <div className="HistoryCardOveflow">
         {getapi.map((elm) => {
           const { id, date, orginalPrice, percentage, savings, finalPrice } =
