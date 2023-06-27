@@ -21,9 +21,15 @@ export default function ToggleButtonComp() {
         aria-label="Platform"
         style={{
           height: "40px",
+          backgroundColor: "#ffffff",
         }}
       >
-        <ToggleButton value="web">
+        <ToggleButton
+          value="web"
+          style={{
+            border: "2px solid red",
+          }}
+        >
           {" "}
           <Link to="/">
             <div>
@@ -36,7 +42,12 @@ export default function ToggleButtonComp() {
             </div>
           </Link>
         </ToggleButton>
-        <ToggleButton value="android">
+        <ToggleButton
+          value="android"
+          style={{
+            border: "2px solid red",
+          }}
+        >
           <Link to="/History">
             <div>
               {" "}

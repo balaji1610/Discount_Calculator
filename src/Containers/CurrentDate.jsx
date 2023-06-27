@@ -10,7 +10,7 @@ export default function CurrentDate() {
   const CurrentYear = `${date.getFullYear()}`;
   return (
     <div>
-      <h2 style={{ color: "#000000" }}>
+      <h2 style={{ color: "#ffffff" }}>
         {CurrentData}
         <sup>th</sup>,&nbsp;
         {CurrentMonth},&nbsp;{CurrentYear}

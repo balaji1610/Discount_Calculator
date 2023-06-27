@@ -14,7 +14,8 @@ export default function Header() {
         alignItems="center"
         style={{
           height: "150px",
-          borderBottom: "2px solid #000000",
+          backgroundColor: "#000000",
+          color: "#ffffff",
         }}
       >
         <Grid item xs={3}>

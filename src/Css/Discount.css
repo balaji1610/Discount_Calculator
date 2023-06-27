@@ -7,7 +7,8 @@
 .CardDiscount__Layout {
   height: 60vh;
   width: 75vh;
-  border: 2px solid black;
+  border: 3px solid #e91e63;
   border-radius: 23px;
   margin-top: 10px;
+  background-color: #ffffff;
 }

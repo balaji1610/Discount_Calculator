@@ -76,7 +76,12 @@ export default function DiscountCalculatorPage() {
   // console.log(add, "addREdux");
 
   return (
-    <div>
+    <div
+      style={{
+        background:
+          "linear-gradient(90deg, hsla(233, 100%, 90%, 1) 0%, hsla(0, 0%, 89%, 1) 100%)",
+      }}
+    >
       <CardDiscount>
         <form onSubmit={handleSubmit}>
           <Grid
