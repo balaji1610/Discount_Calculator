@@ -106,6 +106,26 @@ export default function HistoryPage() {
               onMouseEnter={() => hoverMouseEnter(id)}
               onMouseLeave={hoverMouseLeave}
             >
+              <div
+                style={{
+                  height: "30px",
+                }}
+              >
+                <div
+                  style={{
+                    display: showbtn === id ? "inline-block" : "none",
+                  }}
+                >
+                  {" "}
+                  <img
+                    width="35"
+                    height="35"
+                    src="https://img.icons8.com/fluency/48/checked.png"
+                    alt="checked"
+                  />
+                </div>
+              </div>
+
               <div className="DateTimeLayoutFlex">
                 <div className="ItemDateTime">
                   {" "}
@@ -233,7 +253,7 @@ export default function HistoryPage() {
               <div
                 className="DeleteIcon"
                 style={{
-                  display: showbtn===id ? "block" : "none",
+                  display: showbtn === id ? "block" : "none",
                 }}
               >
                 <div

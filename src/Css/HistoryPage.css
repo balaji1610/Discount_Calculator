@@ -1,5 +1,5 @@
 .HistoryCardLayout {
-  height: 256px;
+  height: 280px;
   width: 35vh;
   background: linear-gradient(
     90deg,
@@ -12,6 +12,7 @@
   margin-bottom: 20px;
   margin-left: 25px;
   margin-right: 25px;
+  cursor:pointer
 }
 .HistoryCardOveflow {
   height: 80vh;
@@ -27,7 +28,7 @@
 .ItemDateTime {
   height: 40px;
   font-size: 18px;
-  margin-top: 20px;
+  margin-top: 3px;
 }
 
 .OrginalPrice {
