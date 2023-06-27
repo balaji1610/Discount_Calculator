@@ -66,7 +66,8 @@ export default function DiscountCalculatorPage() {
 
   const handleClickClear = () => {
     setDiscountInfo({ ...discountInfo, orginalPrice: " ", percentage: " " });
-    setUserViewData("");
+    setUserViewData({ ...userViewData, savings: " ", finalPrice: " " });
+    setNumTowords(" ");
   };
   const SubmitButton = (props) => <button {...props} type="submit" />;
 
@@ -91,7 +92,7 @@ export default function DiscountCalculatorPage() {
             alignItems="center"
             style={{ height: "20vh" }}
           >
-            <Grid item xs={1}></Grid>
+            <Grid item xs={2}></Grid>
             <Grid item xs={3}>
               <div>
                 <InputComp
@@ -109,7 +110,7 @@ export default function DiscountCalculatorPage() {
               </div>
             </Grid>
             <Grid item xs={2}>
-              <div> </div>
+          
             </Grid>
             <Grid item xs={2}>
               <div>
@@ -128,7 +129,7 @@ export default function DiscountCalculatorPage() {
                 />
               </div>
             </Grid>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={2}></Grid>
           </Grid>
           {/* Savingslayout */}
 
@@ -199,11 +200,12 @@ export default function DiscountCalculatorPage() {
           <div
             style={{
               textAlign: "center",
-              marginTop: "20px",
+              height:'20px',
+              marginTop: "30px",
               marginBottom: "20px",
             }}
           >
-            {numTowords}
+          <h3>{numTowords}</h3>  
           </div>
 
           <Grid container>
