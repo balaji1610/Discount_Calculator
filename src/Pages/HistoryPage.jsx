@@ -121,8 +121,15 @@ export default function HistoryPage() {
                 <div className="ItemDateTime">{Time}</div>
               </div>
               <div className="OrginalPrice">
-                <div> Orginal Price</div>
-                <div>:</div>
+                <div
+                  style={{
+                    marginRight: "-14px",
+                  }}
+                >
+                  {" "}
+                  Orginal Price
+                </div>
+                <div className="quation">:</div>
                 <div>
                   {" "}
                   <img
@@ -144,8 +151,15 @@ export default function HistoryPage() {
                 </div>
               </div>
               <div className="OrginalPrice">
-                <div>Percentage </div>
-                <div>:</div>
+                <div
+                  style={{
+                    marginRight: "-43px",
+                    marginLeft: "-18px",
+                  }}
+                >
+                  Percentage{" "}
+                </div>
+                <div className="quation">:</div>
                 <div
                   style={{
                     fontSize: "18px",
@@ -156,7 +170,7 @@ export default function HistoryPage() {
               </div>
               <div className="OrginalPrice">
                 <div>Savings</div>
-                <div>:</div>
+                <div className="quation">:</div>
 
                 <div>
                   {" "}
@@ -180,7 +194,7 @@ export default function HistoryPage() {
               </div>
               <div className="OrginalPrice">
                 <div>FinalPrice</div>
-                <div>:</div>
+                <div className="quation">:</div>
 
                 <div>
                   {" "}
