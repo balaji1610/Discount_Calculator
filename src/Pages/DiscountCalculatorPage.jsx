@@ -152,7 +152,7 @@ export default function DiscountCalculatorPage() {
               </Grid>
               <Grid item xs={2}></Grid>
               <Grid item xs={3}>
-                <div>{userViewData.savings}</div>
+                <div>{userViewData.savings.toLocaleString()}</div>
               </Grid>
             </Grid>
 
@@ -184,7 +184,7 @@ export default function DiscountCalculatorPage() {
               </Grid>
               <Grid item xs={2}></Grid>
               <Grid item xs={3}>
-                <div>{userViewData.finalPrice}</div>
+                <div>{userViewData.finalPrice.toLocaleString()}</div>
               </Grid>
             </Grid>
 

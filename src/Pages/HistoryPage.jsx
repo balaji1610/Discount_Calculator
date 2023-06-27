@@ -177,10 +177,10 @@ export default function HistoryPage() {
                   />
                   <span
                     style={{
-                      fontSize: "18px",
+                      fontSize: "20px",
                     }}
                   >
-                    {orginalPrice}
+                    {orginalPrice.toLocaleString()}
                   </span>
                 </div>
               </div>
@@ -222,7 +222,7 @@ export default function HistoryPage() {
                       fontSize: "25px",
                     }}
                   >
-                    {savings}
+                    {savings.toLocaleString()}
                   </span>
                 </div>
               </div>
@@ -246,7 +246,7 @@ export default function HistoryPage() {
                       fontSize: "25px",
                     }}
                   >
-                    {finalPrice}
+                    {finalPrice.toLocaleString()}
                   </span>
                 </div>
               </div>
