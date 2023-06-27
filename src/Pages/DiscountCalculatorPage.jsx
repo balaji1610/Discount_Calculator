@@ -36,8 +36,10 @@ export default function DiscountCalculatorPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const Saving = (discountInfo.orginalPrice * discountInfo.percentage) / 100;
-    const FinalPrice = discountInfo.orginalPrice - Saving;
+    const Saving = Math.round(
+      (discountInfo.orginalPrice * discountInfo.percentage) / 100
+    );
+    const FinalPrice = Math.round(discountInfo.orginalPrice - Saving);
     const amountInWords = numWords(FinalPrice);
 
     const captial = amountInWords
@@ -65,7 +67,7 @@ export default function DiscountCalculatorPage() {
   };
 
   const handleClickClear = () => {
-    setDiscountInfo({ ...discountInfo, orginalPrice: " ", percentage: " " });
+    setDiscountInfo({ ...discountInfo, orginalPrice: "", percentage: "" });
     setUserViewData({ ...userViewData, savings: " ", finalPrice: " " });
     setNumTowords(" ");
   };
@@ -99,19 +101,21 @@ export default function DiscountCalculatorPage() {
                   label="Orginal Price"
                   variant="outlined"
                   size="large"
-                  color="primary"
                   style={{
                     width: "150px",
                   }}
                   onChange={handleTextChange}
                   value={discountInfo.orginalPrice}
                   name="orginalPrice"
+                  type="number"
+                  inputProps={{
+                    max: "10000000",
+                    min: "1",
+                  }}
                 />
               </div>
             </Grid>
-            <Grid item xs={2}>
-          
-            </Grid>
+            <Grid item xs={2}></Grid>
             <Grid item xs={2}>
               <div>
                 <InputComp
@@ -126,6 +130,10 @@ export default function DiscountCalculatorPage() {
                   onChange={handleTextChange}
                   value={discountInfo.percentage}
                   name="percentage"
+                  inputProps={{
+                    max: "99",
+                    min: "1",
+                  }}
                 />
               </div>
             </Grid>
@@ -200,12 +208,12 @@ export default function DiscountCalculatorPage() {
           <div
             style={{
               textAlign: "center",
-              height:'20px',
+              height: "20px",
               marginTop: "30px",
               marginBottom: "20px",
             }}
           >
-          <h3>{numTowords}</h3>  
+            <h3>{numTowords}</h3>
           </div>
 
           <Grid container>
@@ -217,6 +225,12 @@ export default function DiscountCalculatorPage() {
                   color="primary"
                   label="Submit"
                   component={SubmitButton}
+                  disabled={
+                    discountInfo.orginalPrice.length &&
+                    discountInfo.percentage.length > 0
+                      ? false
+                      : true
+                  }
                 />
               </div>
             </Grid>
@@ -233,13 +247,6 @@ export default function DiscountCalculatorPage() {
             </Grid>
             <Grid item xs={3}></Grid>
           </Grid>
-          {/* <button
-            onClick={() => {
-              dispatch(increment());
-            }}
-          >
-            Dispatch
-          </button> */}
         </form>
       </CardDiscount>
     </div>

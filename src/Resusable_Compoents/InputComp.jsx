@@ -1,5 +1,5 @@
 import TextField from "@mui/material/TextField";
-
+import { inputLabelClasses } from "@mui/material/InputLabel";
 export default function InputComp({
   label,
   variant,
@@ -12,6 +12,7 @@ export default function InputComp({
   value,
   onChange,
   name,
+  helperText
 }) {
   return (
     <div>
@@ -27,6 +28,15 @@ export default function InputComp({
         value={value}
         onChange={onChange}
         name={name}
+        helperText={helperText}
+        InputLabelProps={{
+          sx: {
+            color: "red",
+            [`&.${inputLabelClasses.shrink}`]: {
+              color: "blue",
+            },
+          },
+        }}
       />
     </div>
   );
