@@ -54,7 +54,6 @@ export default function HistoryPage() {
     setshowbtn(-1);
   };
 
-  console.log(showbtn, "showbtn");
   return (
     <div>
       <div>
@@ -180,7 +179,7 @@ export default function HistoryPage() {
                       fontSize: "20px",
                     }}
                   >
-                    {orginalPrice.toLocaleString()}
+                    {Number(orginalPrice).toLocaleString()}
                   </span>
                 </div>
               </div>
