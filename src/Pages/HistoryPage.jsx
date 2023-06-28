@@ -120,7 +120,9 @@ export default function HistoryPage() {
 
           return (
             <div
-              className="HistoryCardLayout"
+              className={
+                mobile ? "HistoryCardLayout" : "Mobile__HistoryCardLayout"
+              }
               onMouseEnter={() => hoverMouseEnter(id)}
               onMouseLeave={hoverMouseLeave}
             >

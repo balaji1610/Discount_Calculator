@@ -1,6 +1,23 @@
 .HistoryCardLayout {
   height: 280px;
-  width: 280px;
+  width: 35vh;
+  background: linear-gradient(
+    90deg,
+    hsla(186, 33%, 94%, 1) 0%,
+    hsla(216, 41%, 79%, 1) 100%
+  );
+  border-radius: 8%;
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.Mobile__HistoryCardLayout {
+  height: 280px;
+  width: 40vh;
   background: linear-gradient(
     90deg,
     hsla(186, 33%, 94%, 1) 0%,
@@ -23,7 +40,7 @@
 .Mobile___HistoryCardOveflow {
   height: 80vh;
   overflow-y: scroll;
-  margin-left: 30px;
+  margin-left: 5px;
 }
 
 .DateTimeLayoutFlex {
