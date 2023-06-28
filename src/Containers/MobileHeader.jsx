@@ -10,7 +10,7 @@ export default function MobileHeader() {
         justifyContent="flex-start"
         alignItems="center"
         style={{
-          height: "31vh",
+          height: "41vh",
           backgroundColor: "#000000",
           color: "#ffffff",
         }}
