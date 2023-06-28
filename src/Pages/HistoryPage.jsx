@@ -5,7 +5,8 @@ import redClock from "../assests/images/redClock.png";
 import { callUserEffect } from "../features/History/HistorySlice";
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
-import { fontSize } from "@mui/system";
+import Tooltip from "@mui/material/Tooltip";
+import Zoom from "@mui/material/Zoom";
 export default function HistoryPage() {
   const HistoryPage = useSelector((state) => state.counterStore.calleffect);
   const dispatch = useDispatch();
@@ -255,19 +256,26 @@ export default function HistoryPage() {
                   display: showbtn === id ? "block" : "none",
                 }}
               >
-                <div
-                  onClick={() => deleteItem(id)}
-                  style={{
-                    cursor: "pointer",
-                  }}
+                <Tooltip
+                  title="DELETE"
+                  arrow
+                  placement="bottom"
+                  TransitionComponent={Zoom}
                 >
-                  <img
-                    width="28"
-                    height="28"
-                    src="https://img.icons8.com/plasticine/100/filled-trash.png"
-                    alt="filled-trash"
-                  />
-                </div>
+                  <div
+                    onClick={() => deleteItem(id)}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    <img
+                      width="28"
+                      height="28"
+                      src="https://img.icons8.com/plasticine/100/filled-trash.png"
+                      alt="filled-trash"
+                    />
+                  </div>
+                </Tooltip>
               </div>
             </div>
           );
