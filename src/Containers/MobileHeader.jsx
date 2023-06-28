@@ -1,21 +1,27 @@
 import Grid from "@mui/material/Grid";
 import CurrentDate from "./CurrentDate";
 import ToggleButtonComp from "./ToggleButtonComp";
-export default function MobileHeader({ children1, children2, children3 }) {
+export default function MobileHeader() {
   return (
     <div>
       <Grid
         container
         direction="column"
-        justifyContent="center"
+        justifyContent="flex-start"
         alignItems="center"
         style={{
-          height: "40vh",
+          height: "31vh",
           backgroundColor: "#000000",
           color: "#ffffff",
         }}
       >
-        <Grid item xs={4}>
+        <Grid
+          item
+          xs={4}
+          style={{
+            height: "20px",
+          }}
+        >
           {<CurrentDate />}
         </Grid>
         <Grid item xs={4}>
