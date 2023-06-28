@@ -5,7 +5,7 @@ import InputComp from "../Resusable_Compoents/InputComp";
 import ButtonComp from "../Resusable_Compoents/ButtonComp";
 
 import HistoryTime from "../Containers/HistoryTime";
-import { useState} from "react";
+import { useState } from "react";
 
 import Services from "../Services/Services";
 import { useDispatch } from "react-redux";
@@ -161,16 +161,27 @@ export default function DiscountCalculatorPage() {
               xs={8}
               style={{
                 border: "1px solid red",
-                heigth: "10px",
                 padding: "20px",
-                borderRadius: "90px",
+                borderRadius: "82px",
+                backgroundColor: "#9d3257",
+                color: "#ffffff",
               }}
             >
               <Grid item xs={1}></Grid>
               <Grid item xs={3}>
                 <div>Savings</div>
               </Grid>
-              <Grid item xs={2}></Grid>
+              <Grid item xs={2}>
+                <img
+                  style={{
+                    display: "inline-block",
+                  }}
+                  width="24"
+                  height="24"
+                  src="https://img.icons8.com/material-outlined/24/rupee.png"
+                  alt="rupee"
+                />
+              </Grid>
               <Grid item xs={3}>
                 <div>{userViewData.savings.toLocaleString()}</div>
               </Grid>
@@ -192,17 +203,27 @@ export default function DiscountCalculatorPage() {
               container
               xs={8}
               style={{
-                border: "1px solid red",
-                heigth: "10px",
                 padding: "20px",
-                borderRadius: "90px",
+                borderRadius: "93px",
+                color: "#ffffff",
+                backgroundColor: "#266f91",
               }}
             >
               <Grid item xs={1}></Grid>
               <Grid item xs={3}>
                 Final Price
               </Grid>
-              <Grid item xs={2}></Grid>
+              <Grid item xs={2}>
+                <img
+                  style={{
+                    display: "inline-block",
+                  }}
+                  width="24"
+                  height="24"
+                  src="https://img.icons8.com/material-outlined/24/rupee.png"
+                  alt="rupee"
+                />
+              </Grid>
               <Grid item xs={3}>
                 <div>{userViewData.finalPrice.toLocaleString()}</div>
               </Grid>
