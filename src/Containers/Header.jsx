@@ -7,8 +7,6 @@ export default function Header() {
     <div>
       <Grid
         container
-        columns={12}
-        spacing={5}
         direction="row"
         justifyContent="center"
         alignItems="center"
@@ -18,7 +16,7 @@ export default function Header() {
           color: "#ffffff",
         }}
       >
-        <Grid item xs={3}>
+        <Grid item xs={2}>
           <div
             style={{
               display: "flex",
@@ -29,13 +27,26 @@ export default function Header() {
             <CurrentDate />
           </div>
         </Grid>
-        <Grid item xs={6}>
-          <div>
-            <h1 style={{ textAlign: "center" }}> Discount Calculator</h1>
+
+        <Grid item xs={8}>
+          <div className="Logo__Flex">
+            <div className="Item__Logo">
+              <img
+                width="60"
+                height="60"
+                src="https://img.icons8.com/3d-fluency/94/discount.png"
+                alt="discount"
+              />
+            </div>
+            <div className="Item__Logo">
+              <h1 style={{ marginTop: "10px", marginLeft: "20px" }}>
+                Discount Calcultor
+              </h1>
+            </div>
           </div>
         </Grid>
-        <div></div>
-        <Grid item xs={3}>
+
+        <Grid item xs={2}>
           <ToggleButtonComp />
         </Grid>
       </Grid>
