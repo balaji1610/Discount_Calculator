@@ -9,7 +9,10 @@ import Tooltip from "@mui/material/Tooltip";
 import Zoom from "@mui/material/Zoom";
 import ToastCom from "../Resusable_Compoents/ToastCom";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 export default function HistoryPage() {
+  const mobile = useMediaQuery("(min-width:600px)");
   const HistoryPage = useSelector((state) => state.counterStore.calleffect);
   const dispatch = useDispatch();
   const [getapi, setGETApi] = useState([]);
@@ -103,7 +106,11 @@ export default function HistoryPage() {
           </div>
         )}
       </div>
-      <div className="HistoryCardOveflow">
+      <div
+        className={
+          mobile ? "HistoryCardOveflow" : "Mobile___HistoryCardOveflow"
+        }
+      >
         {getapi.map((elm) => {
           const { id, date, orginalPrice, percentage, savings, finalPrice } =
             elm;
@@ -291,7 +298,6 @@ export default function HistoryPage() {
             </div>
           );
         })}
-      
       </div>
 
       <ToastCom
