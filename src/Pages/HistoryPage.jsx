@@ -176,6 +176,7 @@ export default function HistoryPage() {
               </div>
               <div className="OrginalPrice">
                 <div
+                  className="Font_History_page"
                   style={{
                     marginRight: "-14px",
                   }}
@@ -206,6 +207,7 @@ export default function HistoryPage() {
               </div>
               <div className="OrginalPrice">
                 <div
+                  className="Font_History_page"
                   style={{
                     marginRight: "-43px",
                     marginLeft: "-18px",
@@ -223,7 +225,7 @@ export default function HistoryPage() {
                 </div>
               </div>
               <div className="OrginalPrice">
-                <div>Savings</div>
+                <div className="Font_History_page">Savings</div>
                 <div className="quation">:</div>
 
                 <div>
@@ -247,7 +249,7 @@ export default function HistoryPage() {
                 </div>
               </div>
               <div className="OrginalPrice">
-                <div>FinalPrice</div>
+                <div className="Font_History_page">FinalPrice</div>
                 <div className="quation">:</div>
 
                 <div>

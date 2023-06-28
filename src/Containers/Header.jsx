@@ -39,7 +39,10 @@ export default function Header() {
               />
             </div>
             <div className="Item__Logo">
-              <h1 style={{ marginTop: "10px", marginLeft: "20px" }}>
+              <h1
+                className="Font_Heading"
+                style={{ marginTop: "10px", marginLeft: "20px" }}
+              >
                 Discount Calcultor
               </h1>
             </div>

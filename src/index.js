@@ -4,6 +4,7 @@ import "./index.css";
 import "./Css/Header.css";
 import "./Css/Discount.css";
 import "./Css/HistoryPage.css";
+import "./Css/Fonts.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store";
