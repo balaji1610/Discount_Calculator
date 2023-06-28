@@ -7,6 +7,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 import Tooltip from "@mui/material/Tooltip";
 import Zoom from "@mui/material/Zoom";
+import ToastCom from "../Resusable_Compoents/ToastCom";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 export default function HistoryPage() {
   const HistoryPage = useSelector((state) => state.counterStore.calleffect);
   const dispatch = useDispatch();
@@ -41,10 +43,19 @@ export default function HistoryPage() {
     getData();
   }, [HistoryPage]);
 
-  const deleteItem = async (getid) => {
-    alert(getid);
+  const [deleteToast, setDeleteToast] = useState(false);
+
+  const handleDeleteToast = () => {
+    setDeleteToast(false);
+  };
+
+  const deleteItem = async (getid, e) => {
+    e.preventDefault();
+
     const deleteapiitems = await Services.deleteApi(getid);
+
     dispatch(callUserEffect());
+    setDeleteToast(true);
   };
   const [showbtn, setshowbtn] = useState(-1);
   const hoverMouseEnter = (id) => {
@@ -263,7 +274,7 @@ export default function HistoryPage() {
                   TransitionComponent={Zoom}
                 >
                   <div
-                    onClick={() => deleteItem(id)}
+                    onClick={(e) => deleteItem(id, e)}
                     style={{
                       cursor: "pointer",
                     }}
@@ -281,6 +292,23 @@ export default function HistoryPage() {
           );
         })}
       </div>
+
+      <ToastCom
+        open={deleteToast}
+        onClose={handleDeleteToast}
+        anchorOrigin={{
+          horizontal: "right",
+          vertical: "bottom",
+        }}
+        alertIcon={<DeleteForeverIcon />}
+        style={{
+          background:
+            "linear-gradient(90deg, hsla(29, 92%, 70%, 1) 0%, hsla(0, 87%, 73%, 1) 100%)",
+          color: "#ffffff",
+          fontSize: "17px",
+        }}
+        content="Deleted successfully"
+      />
     </div>
   );
 }

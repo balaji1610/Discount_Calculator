@@ -5,11 +5,13 @@ import InputComp from "../Resusable_Compoents/InputComp";
 import ButtonComp from "../Resusable_Compoents/ButtonComp";
 
 import HistoryTime from "../Containers/HistoryTime";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 import Services from "../Services/Services";
 import { useDispatch } from "react-redux";
 import { callUserEffect } from "../features/History/HistorySlice";
+import ThumbUpAltRoundedIcon from "@mui/icons-material/ThumbUpAltRounded";
+import ToastCom from "../Resusable_Compoents/ToastCom";
 const numWords = require("num-words");
 
 export default function DiscountCalculatorPage() {
@@ -32,10 +34,14 @@ export default function DiscountCalculatorPage() {
       [e.target.name]: e.target.value,
     }));
   };
+  const [toast, setToast] = useState(false);
 
+  const handleToastClose = () => {
+    setToast(false);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setToast(true);
     const Saving = Math.round(
       (discountInfo.orginalPrice * discountInfo.percentage) / 100
     );
@@ -248,6 +254,24 @@ export default function DiscountCalculatorPage() {
             <Grid item xs={3}></Grid>
           </Grid>
         </form>
+        <div>
+          <ToastCom
+            open={toast}
+            onClose={handleToastClose}
+            anchorOrigin={{
+              horizontal: "right",
+              vertical: "bottom",
+            }}
+            alertIcon={<ThumbUpAltRoundedIcon />}
+            style={{
+              background:
+                "linear-gradient(90deg, hsla(61, 91%, 54%, 1) 0%, hsla(95, 98%, 41%, 1) 100%)",
+              color: "black",
+              fontSize: "17px",
+            }}
+            content="Submit Data Sucessfully"
+          />
+        </div>
       </CardDiscount>
     </div>
   );
