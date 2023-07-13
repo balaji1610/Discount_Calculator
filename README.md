@@ -1,3 +1,13 @@
+Live  https://master-discountcalc.onrender.com
+
+#Project description
+1. Users easily read the number of digits in words. Users can log in, time, date, and activities, and save their history on the history page.
+   
+3. History page design card format, user can remove activities
+   
+3. fetch data from the fetch API
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
