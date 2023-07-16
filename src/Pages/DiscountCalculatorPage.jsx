@@ -150,12 +150,10 @@ export default function DiscountCalculatorPage() {
           <Grid
             container
             direction="row"
-            justifyContent="flex-start"
+            justifyContent="center"
             alignItems="center"
             style={{ height: "12vh" }}
           >
-            <Grid item xs={2}></Grid>
-
             <Grid
               container
               xs={8}
@@ -167,7 +165,6 @@ export default function DiscountCalculatorPage() {
                 color: "#ffffff",
               }}
             >
-              <Grid item xs={1}></Grid>
               <Grid item xs={3}>
                 <div>Savings</div>
               </Grid>
@@ -183,22 +180,26 @@ export default function DiscountCalculatorPage() {
                 />
               </Grid>
               <Grid item xs={3}>
-                <div>{userViewData.savings.toLocaleString()}</div>
+                <div
+                  style={{
+                    color: "#ffffff",
+                    fontWeight: "bold",
+                    fontSize: "20px",
+                  }}
+                >
+                  {userViewData.savings.toLocaleString()}
+                </div>
               </Grid>
             </Grid>
-
-            <Grid item xs={1}></Grid>
           </Grid>
 
           <Grid
             container
             direction="row"
-            justifyContent="flex-start"
+            justifyContent="center"
             alignItems="center"
             style={{ height: "5vh" }}
           >
-            <Grid item xs={2}></Grid>
-
             <Grid
               container
               xs={8}
@@ -209,7 +210,6 @@ export default function DiscountCalculatorPage() {
                 backgroundColor: "#266f91",
               }}
             >
-              <Grid item xs={1}></Grid>
               <Grid item xs={3}>
                 Final Price
               </Grid>
@@ -225,11 +225,17 @@ export default function DiscountCalculatorPage() {
                 />
               </Grid>
               <Grid item xs={3}>
-                <div>{userViewData.finalPrice.toLocaleString()}</div>
+                <div
+                  style={{
+                    color: "#ffffff",
+                    fontWeight: "bold",
+                    fontSize: "20px",
+                  }}
+                >
+                  {userViewData.finalPrice.toLocaleString()}
+                </div>
               </Grid>
             </Grid>
-
-            <Grid item xs={1}></Grid>
           </Grid>
 
           <div
@@ -238,7 +244,7 @@ export default function DiscountCalculatorPage() {
               height: "20px",
               marginTop: "50px",
               marginBottom: "40px",
-              color:'red'
+              color: "red",
             }}
           >
             <h3>{numTowords}</h3>
