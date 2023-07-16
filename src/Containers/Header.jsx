@@ -12,7 +12,7 @@ export default function Header() {
         alignItems="center"
         style={{
           height: "150px",
-          backgroundColor: "#000000",
+          backgroundColor: "#212121",
           color: "#ffffff",
         }}
       >
