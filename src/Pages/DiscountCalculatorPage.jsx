@@ -236,8 +236,9 @@ export default function DiscountCalculatorPage() {
             style={{
               textAlign: "center",
               height: "20px",
-              marginTop: "30px",
-              marginBottom: "20px",
+              marginTop: "50px",
+              marginBottom: "40px",
+              color:'red'
             }}
           >
             <h3>{numTowords}</h3>

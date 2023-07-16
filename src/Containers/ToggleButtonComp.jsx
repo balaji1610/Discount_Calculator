@@ -85,7 +85,7 @@ export default function ToggleButtonComp() {
                 <img
                   width="30"
                   height="30"
-                  src="https://img.icons8.com/ios/100/time-machine--v1.png"
+                  src="https://img.icons8.com/officel/30/time-machine--v2.png" 
                   alt="time-machine--v1"
                 />
               </div>
